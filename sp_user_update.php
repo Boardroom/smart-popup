@@ -1,0 +1,55 @@
+<?php
+
+include($incPath.'test_sp_export_api.php');
+
+// Params
+$host = "xxxx.xxxxxxx.com";
+$username = "email@domain.com";
+$password = "password";
+$databaseId = "xxxxxxxx"; 
+$mailingId = "xxxxxxxx";
+//$nls = array("NL","BLS","DHN","HMD","BHW","HEFL","DOLAN","DBOE"); // From SP. Note: NL value is for development testing only.
+$nls = array("BLS","DHN","HMD","BHW","HEFL","DOLAN","DBOE"); // From SP.
+$reqResponse = "false";
+
+// Get email from request.
+$email = $_REQUEST['email'];
+if ($email) {
+	// Get newsletter from request.
+	$nl = $_REQUEST['nl'];
+	// Check for valid newsletter.
+	if (in_array(strtoupper($nl), $nls)) {
+		// Login to Silverpop Engage
+		$response = login($username, $password, $host);
+		$xml = getXMLObject($response);
+		$sessionId = null;
+		if ($xml) {
+			$sessionId = getSessionId($xml);
+			if ($sessionId) {
+				$response = addRecipient($databaseId, $email, $host, $sessionId);
+				$xml = getXMLObject($response);
+				if ($xml) {
+					$recipientId = $xml->Body->RESULT->RecipientId;
+				}
+				$response = updateRecipient($databaseId, $email, $nl, $host, $sessionId);
+				$xml = getXMLObject($response);
+				if ($xml) {
+					$reqResponse = "true";
+				}
+				$response = sendMailing($databaseId, $mailingId, $email, $host, $sessionId);
+				$xml = getXMLObject($response);
+				if ($xml) {
+					$reqResponse = "true";
+				}
+			}
+		}
+		// Logout of Silverpop Engage
+		$response = logout($host, $sessionId);
+	}
+}
+
+// Send response in form of JSON.
+$json = json_encode($reqResponse);
+echo $json;
+
+?>

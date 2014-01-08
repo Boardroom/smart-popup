@@ -1,0 +1,236 @@
+
+.desktop { display: block; }
+.mobile-only { display: none; }
+@media only screen and (max-width: 480px) {
+	.mobile-only { display: block!important; }
+	.desktop { display: none!important; }
+	}
+.submit, .submitDesktop { margin-top: 25px; }
+      /* Styles for dialog window */
+      #small-dialog {       
+        height: 300px;		
+        text-align: left;
+        max-width: 450px;
+        margin: 40px auto;
+        position: relative;
+		font-family: Arial, sans-serif;
+      }
+	  #inner-wrap {
+	  float: left;	 
+	  height: 220px;	  
+	  }
+	  #inner-wrap img {
+	  padding-top: 20px;
+	  width: 13px;
+	  }
+	  #inner-creative .text {
+	  display: inline-block;	  
+	  color: #000000;
+	  font-size: 13px;
+	  line-height: 18px;
+	  padding: 20px;
+	  margin-top: 40px;
+	  }
+	  
+	  img.logo { width: 300px; }
+	  img.cover { width: 185px; float: right; }
+	  
+	  a.popup-modal-dismiss-facebook, a.popup-modal-dismiss-subscribe {
+	  color: #ff0000;
+	  font-size: 11px;
+	  }
+	  #inner-creative h1{
+	    font-family: Arial, sans-serif;
+		font-weight: bold;
+		font-size: 14px;	
+		background: #8BC230;
+		color: #FFFFFF;
+		padding-top: 7px;
+		position: absolute;
+		margin-top: 20px;
+		height: 22px;
+		width: 385px;		
+	  }
+        #inner-creative h2 {
+         position: relative;
+font-family: Arial, sans-serif;
+		font-weight: bold;
+		font-size: 14px;	
+		background: #8BC230;
+		color: #FFFFFF;
+		padding: 5px;
+		margin-top: 20px;
+ width: 300px;
+        }
+	  #inner-creative {
+	  height: auto;
+	  background: white;	  
+	  margin-left: 13px;
+	  }
+#small-dialog2 {        		
+        text-align: left;
+        max-width: 650px;
+        margin: 40px auto;
+        position: relative;
+		font-family: Arial, sans-serif;
+      }
+	  
+.thankyou {
+		display: none;
+		
+		}
+.loadingGraphic { display: none; }
+      /**
+       * Fade-zoom animation for first dialog
+       */
+      
+      /* start state */
+      .my-mfp-zoom-in .zoom-anim-dialog {
+        opacity: 0;
+
+        -webkit-transition: all 0.2s ease-in-out; 
+        -moz-transition: all 0.2s ease-in-out; 
+        -o-transition: all 0.2s ease-in-out; 
+        transition: all 0.2s ease-in-out; 
+
+
+
+        -webkit-transform: scale(0.8); 
+        -moz-transform: scale(0.8); 
+        -ms-transform: scale(0.8); 
+        -o-transform: scale(0.8); 
+        transform: scale(0.8); 
+      }
+
+      /* animate in */
+      .my-mfp-zoom-in.mfp-ready .zoom-anim-dialog {
+        opacity: 1;
+
+        -webkit-transform: scale(1); 
+        -moz-transform: scale(1); 
+        -ms-transform: scale(1); 
+        -o-transform: scale(1); 
+        transform: scale(1); 
+      }
+
+      /* animate out */
+      .my-mfp-zoom-in.mfp-removing .zoom-anim-dialog {
+        -webkit-transform: scale(0.8); 
+        -moz-transform: scale(0.8); 
+        -ms-transform: scale(0.8); 
+        -o-transform: scale(0.8); 
+        transform: scale(0.8); 
+
+        opacity: 0;
+      }
+
+      /* Dark overlay, start state */
+      .my-mfp-zoom-in.mfp-bg {
+        opacity: 0;
+        -webkit-transition: opacity 0.3s ease-out; 
+        -moz-transition: opacity 0.3s ease-out; 
+        -o-transition: opacity 0.3s ease-out; 
+        transition: opacity 0.3s ease-out;
+      }
+      /* animate in */
+      .my-mfp-zoom-in.mfp-ready.mfp-bg {
+        opacity: 0.8;
+      }
+      /* animate out */
+      .my-mfp-zoom-in.mfp-removing.mfp-bg {
+        opacity: 0;
+      }
+
+
+
+      /**
+       * Fade-move animation for second dialog
+       */
+      
+      /* at start */
+      .my-mfp-slide-bottom .zoom-anim-dialog {
+        opacity: 0;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+
+        -webkit-transform: translateY(-20px) perspective( 600px ) rotateX( 10deg );
+        -moz-transform: translateY(-20px) perspective( 600px ) rotateX( 10deg );
+        -ms-transform: translateY(-20px) perspective( 600px ) rotateX( 10deg );
+        -o-transform: translateY(-20px) perspective( 600px ) rotateX( 10deg );
+        transform: translateY(-20px) perspective( 600px ) rotateX( 10deg );
+
+      }
+      
+      /* animate in */
+      .my-mfp-slide-bottom.mfp-ready .zoom-anim-dialog {
+        opacity: 1;
+        -webkit-transform: translateY(0) perspective( 600px ) rotateX( 0 ); 
+        -moz-transform: translateY(0) perspective( 600px ) rotateX( 0 ); 
+        -ms-transform: translateY(0) perspective( 600px ) rotateX( 0 ); 
+        -o-transform: translateY(0) perspective( 600px ) rotateX( 0 ); 
+        transform: translateY(0) perspective( 600px ) rotateX( 0 ); 
+      }
+
+      /* animate out */
+      .my-mfp-slide-bottom.mfp-removing .zoom-anim-dialog {
+        opacity: 0;
+
+        -webkit-transform: translateY(-10px) perspective( 600px ) rotateX( 10deg ); 
+        -moz-transform: translateY(-10px) perspective( 600px ) rotateX( 10deg ); 
+        -ms-transform: translateY(-10px) perspective( 600px ) rotateX( 10deg ); 
+        -o-transform: translateY(-10px) perspective( 600px ) rotateX( 10deg ); 
+        transform: translateY(-10px) perspective( 600px ) rotateX( 10deg ); 
+      }
+
+      /* Dark overlay, start state */
+      .my-mfp-slide-bottom.mfp-bg {
+        opacity: 0;
+
+        -webkit-transition: opacity 0.3s ease-out; 
+        -moz-transition: opacity 0.3s ease-out; 
+        -o-transition: opacity 0.3s ease-out; 
+        transition: opacity 0.3s ease-out;
+      }
+      /* animate in */
+      .my-mfp-slide-bottom.mfp-ready.mfp-bg {
+        opacity: 0.8;
+      }
+      /* animate out */
+      .my-mfp-slide-bottom.mfp-removing.mfp-bg {
+        opacity: 0;
+      }
+	 
+	 input#email-desktop, input#email-mobile { 
+	 padding: 4px; 
+	 font-family: Georgia, sans-serif; 
+	 text-style: italic;
+	 color: #000000;
+	 margin: 10px; 
+	 font-size: 12px;	
+	 background-color: #efefef;
+	 border: 1px #000 solid; 
+	 width: 160px;
+	 }
+	 
+    .btn-style {	
+	border: 0px;
+	font-family: Arial, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color : #ffffff;
+	padding : 5px 20px;	
+	background : #D32C2C;
+	-webkit-appearance: none;
+}
+button.mfp-close { 
+	background-image: url(close.png); 
+	background-size: 25px 25px;
+	background-position: center;
+	width: 25px;
+	height: 25px;
+	color: transparent!important; 
+	margin-top:10px; 
+	margin-right: 10px;
+}
