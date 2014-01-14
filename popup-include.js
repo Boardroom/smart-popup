@@ -1,5 +1,6 @@
 //FINAL popup logic
 //v12.24.2013
+//v1.14.2014 added one-day cookie on close
 
 jQuery(document).ready(function($){    
 	var cookie_value = $.cookie('popup_cookie');
@@ -175,12 +176,13 @@ function writeCookie(value, value2) {
   var cookie_value = jQuery.cookie('popup_cookie');
   if (value2==='optin') {
     jQuery.cookie('popup_cookie', value, { expires: 3, path: '/' });
+  } else if (value2==='oneday') {
+    jQuery.cookie('popup_cookie', value, { expires: 1, path: '/' });
   } else if (cookie_value === undefined) {
     jQuery.cookie('popup_cookie', value, { expires: 999, path: '/' });
-  }  else {
+  } else {
     jQuery.cookie('popup_cookie', value, { expires: 999, path: '/' });
-  }
-  
+  }  
   return true;
 }
 
@@ -204,12 +206,14 @@ $.magnificPopup.close();
 $(document).on('click', '.facebook', function (e) {
 _gaq.push(['_trackEvent', 'Pop Up', 'Close', 'BLP Facebook', 0, true]);
 e.preventDefault();
+writeCookie('nevershow', 'oneday');
 $.magnificPopup.close();
 });
 
 $(document).on('click', '.subscribe', function (e) {
 _gaq.push(['_trackEvent', 'Pop Up', 'Close', 'BLS Best of Times', 0, true]);
 e.preventDefault();
+writeCookie('nevershow', 'oneday');
 $.magnificPopup.close();
 });
 
