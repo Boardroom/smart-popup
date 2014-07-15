@@ -1,10 +1,8 @@
 //FINAL popup logic
 //v12.24.2013
 //v1.14.2014 added one-day cookie on close
-//v6.23.2014 added 15 second delay
 
 jQuery(document).ready(function($){    
-setTimeout(function() {
 	var cookie_value = $.cookie('popup_cookie');
 	if (cookie_value != 'nevershow') {
 		var uid = $.cookie('com.silverpop.iMA.uid');		
@@ -140,7 +138,7 @@ setTimeout(function() {
 	else {
 	return true;
 	}
-	}, 15000);
+	
 });
 
 //Facebook Like Scripting

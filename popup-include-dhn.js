@@ -3,10 +3,8 @@
 //v1.7.2014 - added source 
 //v1.14.2014 - added one day cookie on close
 //v1.15.2014 - added source and mailid
-//v6.23.2014 - added 15 second delay
 
 jQuery(document).ready(function($){    
-setTimeout(function() {
 	var cookie_value = $.cookie('popup_cookie');
 	if (cookie_value != 'nevershow') {
 		var uid = $.cookie('com.silverpop.iMA.uid');		
@@ -142,7 +140,7 @@ setTimeout(function() {
 	else {
 	return true;
 	}
-	}, 15000);
+	
 });
 
 //Facebook Like Scripting
